@@ -29,7 +29,7 @@ export default function RootLayout({
       )}>
         <Providers>
           <Navbar />
-          <div className="min-h-[calc(100vh-64px)]">{children}</div>zz
+          <div className="min-h-[calc(100vh-64px)] justify-center items-center flex">{children}</div>
         </Providers>
       </body>
     </html>
