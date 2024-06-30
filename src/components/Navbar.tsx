@@ -1,9 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { HoveredLink, Menu } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { ThemeToggler } from "./Theme-toggle";
+import {
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+} from '@clerk/nextjs'
 
 export function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
@@ -16,8 +22,16 @@ export function Navbar({ className }: { className?: string }) {
                     <HoveredLink href="/">Home</HoveredLink>
                     <HoveredLink href="/todos">Todos</HoveredLink>
                     <HoveredLink href="/create-todo">Create-Todo</HoveredLink>
-                    <div className="pl-52">
+                    <div className="sm:pl-52 pl-32">
                         <ThemeToggler />
+                    </div>
+                    <div className="ml-4 pl-2">
+                        <SignedOut>
+                            <SignInButton />
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
                     </div>
                 </div>
             </Menu >
