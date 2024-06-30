@@ -2,6 +2,7 @@
 import { ReactNode } from 'react';
 import { ThemeProvider } from '@/components/theme-provider';
 import { RecoilRoot } from 'recoil';
+import { ClerkProvider } from '@clerk/nextjs';
 
 export const Providers = ({ children }: { children: ReactNode }) => {
   return (
@@ -11,7 +12,9 @@ export const Providers = ({ children }: { children: ReactNode }) => {
       enableSystem
       disableTransitionOnChange
     >
-      <RecoilRoot>{children}</RecoilRoot>
-    </ThemeProvider>
+      <ClerkProvider>
+        <RecoilRoot>{children}</RecoilRoot>
+      </ClerkProvider >
+    </ThemeProvider >
   );
 };
