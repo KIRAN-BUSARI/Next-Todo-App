@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axios } from "axios";
 import { atom, selector } from "recoil";
 
 export type Todo = {
@@ -11,7 +11,7 @@ export type Todo = {
 const todosSelector = selector({
   key: "todosSelector",
   get: async () => {
-    const response = await axios.get("/api/courses");
+    const response = await axios.get("/api/todos");
     return response.data.todos as Todo[];
   },
 });
